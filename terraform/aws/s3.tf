@@ -6,12 +6,12 @@ resource "aws_s3_bucket" "data" {
   bucket        = "${local.resource_prefix.value}-data"
   force_destroy = true
   tags = merge({
-    Name        = "${local.resource_prefix.value}-data"
+    Name        = "${local.resource_prefix.value}-data-liron"
     Environment = local.resource_prefix.value
     }, {
-    git_commit           = "4d57f83ca4d3a78a44fb36d1dcf0d23983fa44f5"
+    git_commit           = "4d57f83ca4d3a78a44fb36d1dcf0d23983fa44f6"
     git_file             = "terraform/aws/s3.tf"
-    git_last_modified_at = "2022-05-18 07:08:06"
+    git_last_modified_at = "2023-05-18 07:08:06"
     git_last_modified_by = "nimrod@bridgecrew.io"
     git_modifiers        = "34870196+LironElbaz/nimrod/nimrodkor"
     git_org              = "bridgecrewio"
@@ -89,7 +89,7 @@ resource "aws_s3_bucket" "operations" {
 resource "aws_s3_bucket" "data_science" {
   # bucket is not encrypted
   bucket = "${local.resource_prefix.value}-data-science"
-  acl    = "private"
+  acl    = "public"
   versioning {
     enabled = true
   }
